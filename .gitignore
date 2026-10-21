@@ -1,0 +1,8 @@
+data/
+runs/
+runs_r1/
+tables/
+batches/
+__pycache__/
+.venv/
+*.tmp
