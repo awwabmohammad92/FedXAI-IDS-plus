@@ -36,3 +36,11 @@ mk F_trees100 "SEED=42 N_TREES=100 METHODS=central_lgbm_matched,fedhist,ours SHA
 for s in $SEEDS3; do mk "G_scenario_s$s" "SEED=$s DATASETS=cicids SPLIT=scenario METHODS=central_lgbm_matched,fedavg,fedxgb_ens,fedhist,ours SHAP=0"; done
 chmod +x batches/*.sh
 echo "Generated $(ls batches/*.sh | wc -l | tr -d ' ') batches"
+# H. multi-class head over several seeds (R2.8, R2.10)
+for s in 42 7 2026 11 23; do
+  printf '#!/usr/bin/env bash\ncd "$(dirname "$0")/.."\nSEED=%s DATASETS=nslkdd,toniot TAG=H_mc_s%s python3 fedxai_v5_multiclass.py\n' "$s" "$s" > "batches/H_mc_s$s.sh"
+done
+for s in 42 7 2026; do
+  printf '#!/usr/bin/env bash\ncd "$(dirname "$0")/.."\nSEED=%s DATASETS=cicids CICIDS_FRAC=0.1 TAG=H_mc_cic_s%s python3 fedxai_v5_multiclass.py\n' "$s" "$s" > "batches/H_mc_cic_s$s.sh"
+done
+chmod +x batches/*.sh; echo "Total batches: $(ls batches/*.sh | wc -l | tr -d ' ')"

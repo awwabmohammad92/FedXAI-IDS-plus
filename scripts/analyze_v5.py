@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tables"; OUT.mkdir(exist_ok=True)
 MARGIN = float(sys.argv[sys.argv.index("--margin") + 1]) if "--margin" in sys.argv else 0.01
 KEYS = ["SPLIT", "PARTITION", "ALPHA", "ATTACK", "N_MAL", "EPS_S", "AGG", "N_TREES", "DEPTH", "CICIDS_FRAC"]
-METRICS = ["f1", "auc", "recall", "precision", "fpr", "backdoor_ASR", "uplink_MB_per_client", "rounds", "epsilon"]
+METRICS = ["f1", "macro_f1", "accuracy", "auc", "recall", "precision", "fpr", "backdoor_ASR", "uplink_MB_per_client", "rounds", "epsilon"]
 
 def fam(cfg):
     c = dict(cfg)
