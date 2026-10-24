@@ -1,0 +1,383 @@
+{
+ "config": {
+  "SEED": 42,
+  "DATASETS": [
+   "nslkdd",
+   "cicids",
+   "toniot"
+  ],
+  "SPLIT": "default",
+  "PARTITION": "natural",
+  "ALPHA": 0.1,
+  "N_CLIENTS": 10,
+  "ATTACK": "none",
+  "N_MAL": 0,
+  "KRUM_F": 2,
+  "AGG": "cclip",
+  "DP_MODE": "local",
+  "EPS_S": "8",
+  "EPS": 8.0,
+  "DELTA": 1e-05,
+  "N_TREES": 50,
+  "DEPTH": 7,
+  "LR": 0.3,
+  "LAMBDA": 1.0,
+  "NBINS": 64,
+  "MIN_HESS": 5.0,
+  "T1": 20,
+  "LR1": 2.0,
+  "FINE": 1024,
+  "LIM": 25.0,
+  "METHODS": "central_lgbm_matched,fedhist,ours",
+  "CICIDS_FRAC": 0.3,
+  "DO_SHAP": false,
+  "TAG": "F_depth7",
+  "ALIE_Z": 1.0,
+  "ALL_METHODS": [
+   "central_logreg",
+   "central_rf",
+   "central_xgb",
+   "central_lgbm_matched",
+   "central_lgbm_default",
+   "fedavg",
+   "fedprox",
+   "scaffold",
+   "fedxgb_ens",
+   "fedhist",
+   "ours",
+   "ours_nowarm",
+   "ours_nodp",
+   "ours_norobust",
+   "ours_secagg"
+  ],
+  "RUN_METHODS": [
+   "central_lgbm_matched",
+   "fedhist",
+   "ours"
+  ],
+  "NSL_COLS": [
+   "duration",
+   "protocol_type",
+   "service",
+   "flag",
+   "src_bytes",
+   "dst_bytes",
+   "land",
+   "wrong_fragment",
+   "urgent",
+   "hot",
+   "num_failed_logins",
+   "logged_in",
+   "num_compromised",
+   "root_shell",
+   "su_attempted",
+   "num_root",
+   "num_file_creations",
+   "num_shells",
+   "num_access_files",
+   "num_outbound_cmds",
+   "is_host_login",
+   "is_guest_login",
+   "count",
+   "srv_count",
+   "serror_rate",
+   "srv_serror_rate",
+   "rerror_rate",
+   "srv_rerror_rate",
+   "same_srv_rate",
+   "diff_srv_rate",
+   "srv_diff_host_rate",
+   "dst_host_count",
+   "dst_host_srv_count",
+   "dst_host_same_srv_rate",
+   "dst_host_diff_srv_rate",
+   "dst_host_same_src_port_rate",
+   "dst_host_srv_diff_host_rate",
+   "dst_host_serror_rate",
+   "dst_host_srv_serror_rate",
+   "dst_host_rerror_rate",
+   "dst_host_srv_rerror_rate",
+   "label",
+   "difficulty"
+  ],
+  "DATA_ROOT": "/Users/awwabmohammad/Documents/Cowork/Journal Papers/FedXai (ARRAY)/Revision_R1/FedXAI_MacRunner_v5/data"
+ },
+ "datasets": {
+  "nslkdd": {
+   "results": {
+    "central_lgbm_matched": {
+     "accuracy": 0.7897335100790784,
+     "precision": 0.9686010995723885,
+     "recall": 0.646076114416103,
+     "f1": 0.7751271020727415,
+     "fpr": 0.026754112013325004,
+     "auc": 0.9619353730867927,
+     "train_seconds": 0.4292619228363037,
+     "uplink_MB_per_client": 0.0,
+     "rounds": 0
+    },
+    "fedhist": {
+     "accuracy": 0.7882250765644284,
+     "precision": 0.9672131147540983,
+     "recall": 0.6442832694971885,
+     "f1": 0.77339202739056,
+     "fpr": 0.02789922964813658,
+     "auc": 0.9660355645892886,
+     "train_seconds": 6.293078899383545,
+     "uplink_MB_per_client": 40.834688,
+     "rounds": 351,
+     "epsilon": Infinity,
+     "mean_clients_kept": 10.0,
+     "backdoor_ASR": 0.3247494091761063
+    },
+    "ours": {
+     "accuracy": 0.7779860127074096,
+     "precision": 0.9643036072144289,
+     "recall": 0.6274142286692201,
+     "f1": 0.7602073562083436,
+     "fpr": 0.02966895690193629,
+     "auc": 0.9296538740040252,
+     "train_seconds": 11.837682008743286,
+     "uplink_MB_per_client": 112.642496,
+     "rounds": 371,
+     "epsilon": 7.999999999999998,
+     "mean_clients_kept": 10.0,
+     "backdoor_ASR": 0.33265422540950207
+    }
+   },
+   "info": {
+    "split": "official (KDDTrain+ / KDDTest+, test contains novel attack types)",
+    "data": {
+     "train_rows_raw": 125973,
+     "test_rows_raw": 22544,
+     "train_rows": 125964,
+     "test_rows": 21877,
+     "cross_split_dups_removed": 664,
+     "train_pos_rate": 0.46537899717379566,
+     "test_pos_rate": 0.5609087169173104
+    },
+    "n_clients": 10,
+    "n_features": 41,
+    "n_bins": 54,
+    "client_sizes": [
+     40338,
+     21853,
+     9043,
+     7813,
+     7814,
+     7851,
+     7813,
+     7814,
+     7812,
+     7813
+    ],
+    "client_pos_rate": [
+     0.05674550052060092,
+     0.9550633780259004,
+     0.0009952449408382174,
+     0.07589914245488288,
+     0.3396467878167392,
+     0.9221755190421602,
+     0.5657237936772047,
+     0.9660865113898132,
+     0.8507424475166411,
+     0.8127479841290157
+    ],
+    "malicious": [],
+    "backdoor_trigger_feature": "duration",
+    "dp": {
+     "target_eps": 8.0,
+     "achieved_eps": 7.999999999999998,
+     "delta": 1e-05,
+     "noise_multiplier": 12.28202433726149,
+     "releases": 371,
+     "accountant": "RDP Gaussian, Balle et al. 2020 conversion"
+    },
+    "wall_seconds": 18.95813298225403
+   }
+  },
+  "cicids": {
+   "results": {
+    "central_lgbm_matched": {
+     "accuracy": 0.9951127382862748,
+     "precision": 0.9971355195574871,
+     "recall": 0.9493135226631559,
+     "f1": 0.9726370555930244,
+     "fpr": 0.0002746563244354155,
+     "auc": 0.9998101438803044,
+     "train_seconds": 0.9366466999053955,
+     "uplink_MB_per_client": 0.0,
+     "rounds": 0
+    },
+    "fedhist": {
+     "accuracy": 0.9949922776102322,
+     "precision": 0.9953676325645575,
+     "recall": 0.9496896746285499,
+     "f1": 0.9719923002887392,
+     "fpr": 0.0004451326637401562,
+     "auc": 0.9998603634487475,
+     "train_seconds": 48.56624698638916,
+     "uplink_MB_per_client": 94.408704,
+     "rounds": 351,
+     "epsilon": Infinity,
+     "mean_clients_kept": 8.0,
+     "backdoor_ASR": 0.5368628926086139
+    },
+    "ours": {
+     "accuracy": 0.9844304576215039,
+     "precision": 0.9235421166306695,
+     "recall": 0.9047395147639646,
+     "f1": 0.9140441298719806,
+     "fpr": 0.007543578014234774,
+     "auc": 0.9944289716435741,
+     "train_seconds": 63.94355130195618,
+     "uplink_MB_per_client": 253.919408,
+     "rounds": 371,
+     "epsilon": 7.999999999999998,
+     "mean_clients_kept": 8.0,
+     "backdoor_ASR": 0.39716945646041
+    }
+   },
+   "info": {
+    "split": "temporal (first 70% of each capture file -> train, rest -> test)",
+    "data": {
+     "train_rows_raw": 593849,
+     "test_rows_raw": 254510,
+     "train_rows": 554570,
+     "test_rows": 232441,
+     "cross_split_dups_removed": 10313,
+     "train_pos_rate": 0.21241682745189966,
+     "test_pos_rate": 0.09149848778829897
+    },
+    "n_clients": 8,
+    "n_features": 78,
+    "n_bins": 64,
+    "client_sizes": [
+     109185,
+     90993,
+     126393,
+     34426,
+     54739,
+     38456,
+     53578,
+     46800
+    ],
+    "client_pos_rate": [
+     0.0,
+     0.02799116415548449,
+     0.44405940202384625,
+     0.01981060826119793,
+     0.000200953616251667,
+     0.011233617640940295,
+     0.5166299600582328,
+     0.6479059829059829
+    ],
+    "malicious": [],
+    "backdoor_trigger_feature": "Destination Port",
+    "dp": {
+     "target_eps": 8.0,
+     "achieved_eps": 7.999999999999998,
+     "delta": 1e-05,
+     "noise_multiplier": 12.28202433726149,
+     "releases": 371,
+     "accountant": "RDP Gaussian, Balle et al. 2020 conversion"
+    },
+    "wall_seconds": 127.91433668136597
+   }
+  },
+  "toniot": {
+   "results": {
+    "central_lgbm_matched": {
+     "accuracy": 0.712366630011591,
+     "precision": 0.6850223155683907,
+     "recall": 0.9961821132003436,
+     "f1": 0.8118072570295182,
+     "fpr": 0.7561648152525013,
+     "auc": 0.9071225268021903,
+     "train_seconds": 0.32911109924316406,
+     "uplink_MB_per_client": 0.0,
+     "rounds": 0
+    },
+    "fedhist": {
+     "accuracy": 0.7107914524326091,
+     "precision": 0.684013772749631,
+     "recall": 0.995466259425408,
+     "f1": 0.8108612412291785,
+     "fpr": 0.7591585913495628,
+     "auc": 0.8494027344271942,
+     "train_seconds": 1.9556732177734375,
+     "uplink_MB_per_client": 19.15968,
+     "rounds": 351,
+     "epsilon": Infinity,
+     "mean_clients_kept": 10.0,
+     "backdoor_ASR": 0.19008303903789253
+    },
+    "ours": {
+     "accuracy": 0.6970012185335989,
+     "precision": 0.6743251563563304,
+     "recall": 0.9930800801756228,
+     "f1": 0.8032347094358558,
+     "fpr": 0.7917749940912314,
+     "auc": 0.918826088390817,
+     "train_seconds": 4.464470863342285,
+     "uplink_MB_per_client": 53.614272,
+     "rounds": 371,
+     "epsilon": 7.999999999999998,
+     "mean_clients_kept": 10.0,
+     "backdoor_ASR": 0.09826286150615635
+    }
+   },
+   "info": {
+    "split": "type-stratified order split (no timestamps in this file: first 70% of rows of each traffic type -> train)",
+    "data": {
+     "train_rows_raw": 147730,
+     "test_rows_raw": 63313,
+     "train_rows": 59747,
+     "test_rows": 33647,
+     "cross_split_dups_removed": 3233,
+     "train_pos_rate": 0.8175807990359348,
+     "test_pos_rate": 0.6227598299997028
+    },
+    "n_clients": 10,
+    "n_features": 17,
+    "n_bins": 62,
+    "client_sizes": [
+     16333,
+     8119,
+     7463,
+     5207,
+     3771,
+     3771,
+     3771,
+     3771,
+     3771,
+     3770
+    ],
+    "client_pos_rate": [
+     0.7472601481662892,
+     0.9905160734080551,
+     0.9768189736031087,
+     0.9775302477434223,
+     0.9917793688676744,
+     0.8865022540440202,
+     0.6597719437814903,
+     0.2824184566428003,
+     0.7544417926279502,
+     0.726790450928382
+    ],
+    "malicious": [],
+    "backdoor_trigger_feature": "proto",
+    "dp": {
+     "target_eps": 8.0,
+     "achieved_eps": 7.999999999999998,
+     "delta": 1e-05,
+     "noise_multiplier": 12.28202433726149,
+     "releases": 371,
+     "accountant": "RDP Gaussian, Balle et al. 2020 conversion"
+    },
+    "wall_seconds": 7.285901784896851
+   }
+  }
+ },
+ "wall_seconds": 154.16809487342834
+}

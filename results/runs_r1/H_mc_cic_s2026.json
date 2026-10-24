@@ -1,0 +1,164 @@
+{
+ "config": {
+  "SEED": 2026,
+  "EPS_S": "8",
+  "AGG": "cclip",
+  "N_TREES": 50,
+  "DEPTH": 5,
+  "PARTITION": "natural",
+  "CICIDS_FRAC": 0.1,
+  "TAG": "H_mc_cic_s2026",
+  "MULTICLASS": true
+ },
+ "datasets": {
+  "cicids": {
+   "results": {
+    "central_rf": {
+     "macro_f1": 0.714726246904934,
+     "accuracy": 0.9938761567604497,
+     "per_class_f1": {
+      "Benign": 0.9966726247765709,
+      "Bot": 0.0,
+      "BruteForce": 0.9831649831649831,
+      "DDoS": 0.9984561945194905,
+      "DoS": 0.7450462351387054,
+      "Infiltration": 1.0,
+      "PortScan": 0.9944699376397224,
+      "WebAttack": 0.0
+     },
+     "train_seconds": 9.75584101676941
+    },
+    "central_lgbm_matched": {
+     "macro_f1": 0.15389717350687498,
+     "accuracy": 0.8865536302093038,
+     "per_class_f1": {
+      "Benign": 0.9404539174010486,
+      "Bot": 0.0,
+      "BruteForce": 0.0,
+      "DDoS": 0.0,
+      "DoS": 0.2903033908387864,
+      "Infiltration": 0.0,
+      "PortScan": 0.0004200798151648813,
+      "WebAttack": 0.0
+     },
+     "train_seconds": 1.2732090950012207
+    },
+    "central_xgb": {
+     "macro_f1": 0.6014822526719721,
+     "accuracy": 0.9949195702130302,
+     "per_class_f1": {
+      "Benign": 0.9980981518997809,
+      "Bot": 0.0,
+      "BruteForce": 0.993421052631579,
+      "DDoS": 0.9704095630021556,
+      "DoS": 0.8528624933119315,
+      "Infiltration": 0.0,
+      "PortScan": 0.9970667605303297,
+      "WebAttack": 0.0
+     },
+     "train_seconds": 1.5890660285949707
+    },
+    "fedhist": {
+     "macro_f1": 0.5961637846012584,
+     "accuracy": 0.9947580895596547,
+     "per_class_f1": {
+      "Benign": 0.9971660086120321,
+      "Bot": 0.0,
+      "BruteForce": 1.0,
+      "DDoS": 0.9990356798457087,
+      "DoS": 0.7749838813668601,
+      "Infiltration": 0.0,
+      "PortScan": 0.9981247069854665,
+      "WebAttack": 0.0
+     },
+     "train_seconds": 66.20876479148865,
+     "uplink_MB_per_client": 152.55552
+    },
+    "ours": {
+     "macro_f1": 0.3702090259498003,
+     "accuracy": 0.980684429538538,
+     "per_class_f1": {
+      "Benign": 0.989535146692983,
+      "Bot": 0.0,
+      "BruteForce": 0.0,
+      "DDoS": 0.9831100757134537,
+      "DoS": 0.01276207839562443,
+      "Infiltration": 0.0,
+      "PortScan": 0.9762649067963414,
+      "WebAttack": 0.0
+     },
+     "train_seconds": 129.40822887420654,
+     "uplink_MB_per_client": 495.2064
+    },
+    "ours_nodp": {
+     "macro_f1": 0.5885313826096689,
+     "accuracy": 0.9909943481771318,
+     "per_class_f1": {
+      "Benign": 0.9951672913491769,
+      "Bot": 0.0,
+      "BruteForce": 0.9869281045751634,
+      "DDoS": 0.9980724749421742,
+      "DoS": 0.7645901639344262,
+      "Infiltration": 0.0,
+      "PortScan": 0.96349302607641,
+      "WebAttack": 0.0
+     },
+     "train_seconds": 65.41493511199951,
+     "uplink_MB_per_client": 150.55872
+    }
+   },
+   "info": {
+    "classes": [
+     "Benign",
+     "Bot",
+     "BruteForce",
+     "DDoS",
+     "DoS",
+     "Infiltration",
+     "PortScan",
+     "WebAttack"
+    ],
+    "class_counts": {
+     "train": {
+      "Benign": 147956,
+      "Bot": 153,
+      "BruteForce": 909,
+      "DDoS": 10188,
+      "DoS": 19005,
+      "Infiltration": 3,
+      "PortScan": 10205,
+      "WebAttack": 226
+     },
+     "test": {
+      "Benign": 72506,
+      "Bot": 53,
+      "BruteForce": 151,
+      "DDoS": 2595,
+      "DoS": 926,
+      "Infiltration": 1,
+      "PortScan": 4273,
+      "WebAttack": 0
+     }
+    },
+    "split": "temporal",
+    "data": {
+     "train_rows_raw": 197947,
+     "test_rows_raw": 84838,
+     "train_rows": 188645,
+     "test_rows": 80505,
+     "cross_split_dups_removed": 1919,
+     "train_pos_rate": 0.9084894908425879,
+     "test_pos_rate": 0.4656480963915285
+    },
+    "n_clients": 8,
+    "dp": {
+     "eps": 8.0,
+     "delta": 1e-05,
+     "z": 10.102290655495837,
+     "releases": 251
+    },
+    "wall_seconds": 287.542227268219
+   }
+  }
+ }
+}
