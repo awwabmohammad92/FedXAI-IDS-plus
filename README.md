@@ -27,5 +27,10 @@ Key options (environment variables): `DATASETS`, `SPLIT` (default / random / sce
 
 Hardware used in the paper: Apple M4, 16 GB RAM; the full grid takes several hours.
 
+## Results in this repository
+- `results/runs_r1/` — one JSON per run (118 runs: 10-seed main comparison, privacy sweep, attacks, aggregators, partitions, splits, sensitivity and multi-class). Each file contains the configuration, data statistics, privacy parameters, per-method metrics, uplink and SHAP attributions.
+- `results/tables/summary.csv`, `results/tables/tests.csv` — means, 95% CIs, Holm-corrected Wilcoxon tests and TOST equivalence tests (produced by `scripts/analyze_v5.py`).
+- `analysis/` — scripts that produce the figures in `figures/` (run from `results/`: `python3 ../analysis/make_figs.py`).
+
 ## License
 MIT

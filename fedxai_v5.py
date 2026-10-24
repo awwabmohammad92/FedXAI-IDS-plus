@@ -10,8 +10,9 @@ What changed relative to v4, mapped to reviewer comments (R2 = Reviewer 2, R4 = 
   R2.3 / R4.iii  Record-level (epsilon, delta)-DP for the *whole* pipeline: DP quantile
                  sketch for bin edges + DP-FedSGD warm-up + DP histograms. One RDP
                  accountant (rdp_epsilon) covers every release.
-  R2.4 / R4.i-ii Robust aggregation is standard Multi-Krum (Blanchard et al., 2017) applied
-                 to per-client contributions (also: coordinate-wise trimmed mean / median).
+  R2.4 / R4.i-ii Robust aggregation with standard rules applied to per-client contributions:
+                 centred clipping (Karimireddy et al., 2021; default AGG=cclip), Multi-Krum
+                 (Blanchard et al., 2017), coordinate-wise trimmed mean / median.
                  Attacks: label flip, sign flip, scaling, ALIE (statistics-preserving,
                  Baruch et al., 2019) and a feature-trigger backdoor (attack success rate).
   R2.5           ours_nowarm ablation (no FedSGD warm-up).
